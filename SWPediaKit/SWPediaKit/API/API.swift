@@ -40,3 +40,10 @@ public extension APIRequest {
         return decoder
     }
 }
+
+public struct APIPaginatedResponse<T: Decodable>: Decodable {
+    public let count: Int
+    public let next: URL?
+    public let previous: URL?
+    public let results: [T]
+}
