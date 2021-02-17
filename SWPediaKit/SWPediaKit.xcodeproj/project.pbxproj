@@ -13,6 +13,13 @@
 		BCBD68AB25DD7DFE0096C43B /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = BCBD68AA25DD7DFE0096C43B /* RxSwift */; };
 		BCBD68AD25DD7DFE0096C43B /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = BCBD68AC25DD7DFE0096C43B /* RxCocoa */; };
 		BCBD68AF25DD7DFE0096C43B /* RxRelay in Frameworks */ = {isa = PBXBuildFile; productRef = BCBD68AE25DD7DFE0096C43B /* RxRelay */; };
+		BCBD68BF25DD7ECF0096C43B /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCBD68BE25DD7ECF0096C43B /* API.swift */; };
+		BCBD68C325DD7ED70096C43B /* HTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCBD68C225DD7ED70096C43B /* HTTPClient.swift */; };
+		BCBD68C725DD7F9B0096C43B /* API+URLSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCBD68C625DD7F9B0096C43B /* API+URLSession.swift */; };
+		BCBD68CD25DD82630096C43B /* HTTPURLResponse+SWPediaKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCBD68CC25DD82630096C43B /* HTTPURLResponse+SWPediaKit.swift */; };
+		BCBD68D425DD831B0096C43B /* OSLog+SWPediaKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCBD68D325DD831B0096C43B /* OSLog+SWPediaKit.swift */; };
+		BCBD68DA25DD8B620096C43B /* APIRoot.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCBD68D925DD8B620096C43B /* APIRoot.swift */; };
+		BCBD68DE25DD8B840096C43B /* API+Root.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCBD68DD25DD8B840096C43B /* API+Root.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -32,6 +39,13 @@
 		BCBD688025DD7BC20096C43B /* SWPediaKitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SWPediaKitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BCBD688525DD7BC20096C43B /* SWPediaKitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SWPediaKitTests.swift; sourceTree = "<group>"; };
 		BCBD688725DD7BC20096C43B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BCBD68BE25DD7ECF0096C43B /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
+		BCBD68C225DD7ED70096C43B /* HTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClient.swift; sourceTree = "<group>"; };
+		BCBD68C625DD7F9B0096C43B /* API+URLSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "API+URLSession.swift"; sourceTree = "<group>"; };
+		BCBD68CC25DD82630096C43B /* HTTPURLResponse+SWPediaKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HTTPURLResponse+SWPediaKit.swift"; sourceTree = "<group>"; };
+		BCBD68D325DD831B0096C43B /* OSLog+SWPediaKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "OSLog+SWPediaKit.swift"; sourceTree = "<group>"; };
+		BCBD68D925DD8B620096C43B /* APIRoot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRoot.swift; sourceTree = "<group>"; };
+		BCBD68DD25DD8B840096C43B /* API+Root.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "API+Root.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +91,10 @@
 		BCBD687925DD7BC20096C43B /* SWPediaKit */ = {
 			isa = PBXGroup;
 			children = (
+				BCBD68D225DD830C0096C43B /* Logging */,
+				BCBD68BC25DD7EB80096C43B /* API */,
+				BCBD68BB25DD7EB30096C43B /* Models */,
+				BCBD68BD25DD7EBF0096C43B /* Networking */,
 				BCBD687A25DD7BC20096C43B /* SWPediaKit.h */,
 				BCBD687B25DD7BC20096C43B /* Info.plist */,
 			);
@@ -90,6 +108,41 @@
 				BCBD688725DD7BC20096C43B /* Info.plist */,
 			);
 			path = SWPediaKitTests;
+			sourceTree = "<group>";
+		};
+		BCBD68BB25DD7EB30096C43B /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				BCBD68D925DD8B620096C43B /* APIRoot.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		BCBD68BC25DD7EB80096C43B /* API */ = {
+			isa = PBXGroup;
+			children = (
+				BCBD68BE25DD7ECF0096C43B /* API.swift */,
+				BCBD68DD25DD8B840096C43B /* API+Root.swift */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		BCBD68BD25DD7EBF0096C43B /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				BCBD68C625DD7F9B0096C43B /* API+URLSession.swift */,
+				BCBD68C225DD7ED70096C43B /* HTTPClient.swift */,
+				BCBD68CC25DD82630096C43B /* HTTPURLResponse+SWPediaKit.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		BCBD68D225DD830C0096C43B /* Logging */ = {
+			isa = PBXGroup;
+			children = (
+				BCBD68D325DD831B0096C43B /* OSLog+SWPediaKit.swift */,
+			);
+			path = Logging;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -209,6 +262,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BCBD68DA25DD8B620096C43B /* APIRoot.swift in Sources */,
+				BCBD68C325DD7ED70096C43B /* HTTPClient.swift in Sources */,
+				BCBD68D425DD831B0096C43B /* OSLog+SWPediaKit.swift in Sources */,
+				BCBD68C725DD7F9B0096C43B /* API+URLSession.swift in Sources */,
+				BCBD68CD25DD82630096C43B /* HTTPURLResponse+SWPediaKit.swift in Sources */,
+				BCBD68BF25DD7ECF0096C43B /* API.swift in Sources */,
+				BCBD68DE25DD8B840096C43B /* API+Root.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -407,6 +467,7 @@
 		BCBD688F25DD7BC20096C43B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = G9ARX7E85N;
 				INFOPLIST_FILE = SWPediaKitTests/Info.plist;
@@ -425,6 +486,7 @@
 		BCBD689025DD7BC20096C43B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = G9ARX7E85N;
 				INFOPLIST_FILE = SWPediaKitTests/Info.plist;
