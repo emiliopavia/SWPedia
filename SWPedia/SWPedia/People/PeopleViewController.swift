@@ -59,6 +59,14 @@ class PeopleViewController: UIViewController {
         peopleView.collectionView.refreshControl = refreshControl
     }
     
+    override func willTransition(to newCollection: UITraitCollection, with coordinator: UIViewControllerTransitionCoordinator) {
+        super.willTransition(to: newCollection, with: coordinator)
+        
+        coordinator.animate { _ in
+            self.peopleView.collectionView.collectionViewLayout.invalidateLayout()
+        }
+    }
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
