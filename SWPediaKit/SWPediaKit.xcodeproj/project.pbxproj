@@ -95,12 +95,12 @@
 		BCBD687925DD7BC20096C43B /* SWPediaKit */ = {
 			isa = PBXGroup;
 			children = (
-				BCBD68D225DD830C0096C43B /* Logging */,
-				BCBD68BC25DD7EB80096C43B /* API */,
-				BCBD68BB25DD7EB30096C43B /* Models */,
-				BCBD68BD25DD7EBF0096C43B /* Networking */,
 				BCBD687A25DD7BC20096C43B /* SWPediaKit.h */,
 				BCBD687B25DD7BC20096C43B /* Info.plist */,
+				BCBD68BC25DD7EB80096C43B /* API */,
+				BCBD68D225DD830C0096C43B /* Logging */,
+				BCBD68BB25DD7EB30096C43B /* Models */,
+				BCBD68BD25DD7EBF0096C43B /* Networking */,
 			);
 			path = SWPediaKit;
 			sourceTree = "<group>";

@@ -7,7 +7,7 @@
 
 import Foundation
 
-public struct People: Decodable {
+public struct People: Decodable, Hashable {
     /// The name of this person.
     public let name: String
     /// The birth year of the person, using the in-universe standard of BBY or ABY
