@@ -23,6 +23,7 @@ class PeopleViewModel {
     private var dataSource: UICollectionViewDiffableDataSource<PeopleSection, PeopleItem>?
     private var data = [Person]()
     private var nextURL: URL?
+    private var searchString: String?
     
     private var currentRequest: Disposable? {
         didSet {
@@ -55,6 +56,15 @@ class PeopleViewModel {
             })
             .disposed(by: disposeBag)
         
+        peopleView.searchBar.rx.text.orEmpty
+            .debounce(.milliseconds(300), scheduler: MainScheduler.instance)
+            .distinctUntilChanged()
+            .observe(on: MainScheduler.instance)
+            .subscribe(onNext: { [weak self] in
+                self?.search($0)
+            })
+            .disposed(by: disposeBag)
+        
         dataSource = PeopleDataSource(collectionView: peopleView.collectionView)
     }
     
@@ -71,29 +81,32 @@ class PeopleViewModel {
     
     func refreshIfNeeded() {
         guard data.isEmpty else { return }
-        refresh()
+        refresh(animated: false)
     }
     
-    func refresh() {
+    func refresh(animated: Bool) {
         data.removeAll()
         nextURL = baseURL
-        loadNext()
+        loadNext(animated: animated)
     }
     
     func willDisplayCell(at indexPath: IndexPath) {
         if indexPath.item == data.count - 1 {
-            loadNext()
+            loadNext(animated: true)
         }
     }
     
-    private func loadNext() {
+    private func search(_ name: String) {
+        searchString = name
+        refresh(animated: true)
+    }
+    
+    private func loadNext(animated: Bool) {
         guard let url = nextURL else { return }
-        
-        let animated = !data.isEmpty
         
         _isLoading.accept(true)
         
-        currentRequest = client.send(PeopleRequest(url: url))
+        currentRequest = client.send(PeopleRequest(url: url, query: searchString))
             .observe(on: MainScheduler.instance)
             .subscribe(onNext: { [weak self] in
                 self?.updateData(with: $0, animated: animated)

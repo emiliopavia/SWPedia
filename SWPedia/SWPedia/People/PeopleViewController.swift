@@ -57,6 +57,8 @@ class PeopleViewController: UIViewController {
         
         peopleView.collectionView.delegate = self
         peopleView.collectionView.refreshControl = refreshControl
+        
+        peopleView.searchBar.delegate = self
     }
     
     override func willTransition(to newCollection: UITraitCollection, with coordinator: UIViewControllerTransitionCoordinator) {
@@ -78,7 +80,7 @@ class PeopleViewController: UIViewController {
     }
     
     @objc private func refresh(_ sender: UIRefreshControl) {
-        viewModel.refresh()
+        viewModel.refresh(animated: false)
     }
     
     private func bindViewModel() {
@@ -104,5 +106,23 @@ class PeopleViewController: UIViewController {
 extension PeopleViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         viewModel.willDisplayCell(at: indexPath)
+    }
+}
+
+extension PeopleViewController: UISearchBarDelegate {
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        searchBar.setShowsCancelButton(true, animated: true)
+    }
+    
+    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+        searchBar.setShowsCancelButton(false, animated: true)
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.endEditing(true)
+    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.endEditing(true)
     }
 }
