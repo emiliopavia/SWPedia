@@ -21,6 +21,11 @@
 		BCBD690425DE54030096C43B /* PeopleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCBD690325DE54030096C43B /* PeopleViewModel.swift */; };
 		BCBD690825DE544C0096C43B /* EmptyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCBD690725DE544C0096C43B /* EmptyViewController.swift */; };
 		BCBD691A25DE59C70096C43B /* PeopleLayoutBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCBD691925DE59C70096C43B /* PeopleLayoutBuilder.swift */; };
+		BCBD692625DE68790096C43B /* PeopleDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCBD692525DE68790096C43B /* PeopleDataSource.swift */; };
+		BCBD692D25DE6A360096C43B /* PeopleGridCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCBD692B25DE6A360096C43B /* PeopleGridCell.swift */; };
+		BCBD695225DEAB030096C43B /* PeopleListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCBD695125DEAB030096C43B /* PeopleListCell.swift */; };
+		BCBD696125DEBA620096C43B /* RoundedImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCBD696025DEBA620096C43B /* RoundedImageView.swift */; };
+		BCBD696B25DEBD060096C43B /* UICollectionView+SWPedia.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCBD696A25DEBD060096C43B /* UICollectionView+SWPedia.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,6 +78,11 @@
 		BCBD690325DE54030096C43B /* PeopleViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeopleViewModel.swift; sourceTree = "<group>"; };
 		BCBD690725DE544C0096C43B /* EmptyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyViewController.swift; sourceTree = "<group>"; };
 		BCBD691925DE59C70096C43B /* PeopleLayoutBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeopleLayoutBuilder.swift; sourceTree = "<group>"; };
+		BCBD692525DE68790096C43B /* PeopleDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeopleDataSource.swift; sourceTree = "<group>"; };
+		BCBD692B25DE6A360096C43B /* PeopleGridCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeopleGridCell.swift; sourceTree = "<group>"; };
+		BCBD695125DEAB030096C43B /* PeopleListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeopleListCell.swift; sourceTree = "<group>"; };
+		BCBD696025DEBA620096C43B /* RoundedImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedImageView.swift; sourceTree = "<group>"; };
+		BCBD696A25DEBD060096C43B /* UICollectionView+SWPedia.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+SWPedia.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -132,6 +142,7 @@
 				BCBD683C25DD7BAA0096C43B /* SceneDelegate.swift */,
 				BCBD684325DD7BAB0096C43B /* Assets.xcassets */,
 				BCBD684525DD7BAB0096C43B /* LaunchScreen.storyboard */,
+				BCBD695F25DEBA500096C43B /* Common */,
 				BCBD68F825DE53E10096C43B /* People */,
 			);
 			path = SWPedia;
@@ -166,12 +177,32 @@
 		BCBD68F825DE53E10096C43B /* People */ = {
 			isa = PBXGroup;
 			children = (
+				BCBD696E25DEBD9E0096C43B /* Cells */,
+				BCBD692525DE68790096C43B /* PeopleDataSource.swift */,
 				BCBD691925DE59C70096C43B /* PeopleLayoutBuilder.swift */,
 				BCBD68FF25DE53F90096C43B /* PeopleView.swift */,
 				BCBD68F925DE53F00096C43B /* PeopleViewController.swift */,
 				BCBD690325DE54030096C43B /* PeopleViewModel.swift */,
 			);
 			path = People;
+			sourceTree = "<group>";
+		};
+		BCBD695F25DEBA500096C43B /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				BCBD696025DEBA620096C43B /* RoundedImageView.swift */,
+				BCBD696A25DEBD060096C43B /* UICollectionView+SWPedia.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		BCBD696E25DEBD9E0096C43B /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				BCBD692B25DE6A360096C43B /* PeopleGridCell.swift */,
+				BCBD695125DEAB030096C43B /* PeopleListCell.swift */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -314,9 +345,14 @@
 				BCBD690025DE53F90096C43B /* PeopleView.swift in Sources */,
 				BCBD68FA25DE53F00096C43B /* PeopleViewController.swift in Sources */,
 				BCBD683B25DD7BAA0096C43B /* AppDelegate.swift in Sources */,
+				BCBD695225DEAB030096C43B /* PeopleListCell.swift in Sources */,
 				BCBD691A25DE59C70096C43B /* PeopleLayoutBuilder.swift in Sources */,
 				BCBD690825DE544C0096C43B /* EmptyViewController.swift in Sources */,
 				BCBD683D25DD7BAA0096C43B /* SceneDelegate.swift in Sources */,
+				BCBD696125DEBA620096C43B /* RoundedImageView.swift in Sources */,
+				BCBD692625DE68790096C43B /* PeopleDataSource.swift in Sources */,
+				BCBD696B25DEBD060096C43B /* UICollectionView+SWPedia.swift in Sources */,
+				BCBD692D25DE6A360096C43B /* PeopleGridCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -414,7 +450,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -469,7 +505,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;

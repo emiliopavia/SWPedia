@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
 import SWPediaKit
 
 class PeopleViewController: UIViewController {
@@ -13,7 +15,24 @@ class PeopleViewController: UIViewController {
     let client: HTTPClient
     
     lazy var peopleView = PeopleView(layout: viewModel.layout)
-    lazy var viewModel = PeopleViewModel(client: client)
+    
+    lazy var switchModeButton: UIBarButtonItem = {
+        let button = UIBarButtonItem(image: nil,
+                                     style: .plain,
+                                     target: self,
+                                     action: #selector(switchMode(_:)))
+        return button
+    }()
+    
+    lazy var refreshControl: UIRefreshControl = {
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: #selector(refresh(_:)), for: .primaryActionTriggered)
+        return refreshControl
+    }()
+    
+    lazy var viewModel = PeopleViewModel(client: client, baseURL: URL(string: "https://swapi.dev/api/people/")!)
+    
+    private lazy var disposeBag = DisposeBag()
     
     init(client: HTTPClient) {
         self.client = client
@@ -32,13 +51,50 @@ class PeopleViewController: UIViewController {
         super.viewDidLoad()
         
         title = "Star Wars"
+        navigationItem.rightBarButtonItem = switchModeButton
         
-        viewModel.bind(to: peopleView)
+        bindViewModel()
+        
+        peopleView.collectionView.delegate = self
+        peopleView.collectionView.refreshControl = refreshControl
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
         viewModel.refreshIfNeeded()
+    }
+    
+    @objc private func switchMode(_ sender: UIBarButtonItem) {
+        viewModel.switchMode()
+    }
+    
+    @objc private func refresh(_ sender: UIRefreshControl) {
+        viewModel.refresh()
+    }
+    
+    private func bindViewModel() {
+        viewModel.bind(to: peopleView)
+        
+        viewModel.isLoading
+            .filter { [unowned self] in !$0 && self.refreshControl.isRefreshing }
+            .bind(to: refreshControl.rx.isRefreshing)
+            .disposed(by: disposeBag)
+        
+        viewModel.layoutMode
+            .map { mode -> UIImage? in
+                switch mode {
+                case .grid: return UIImage(systemName: "list.dash")
+                case .list: return UIImage(systemName: "square.grid.2x2")
+                }
+            }
+            .bind(to: switchModeButton.rx.image)
+            .disposed(by: disposeBag)
+    }
+}
+
+extension PeopleViewController: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        viewModel.willDisplayCell(at: indexPath)
     }
 }

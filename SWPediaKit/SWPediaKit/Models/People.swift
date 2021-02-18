@@ -7,7 +7,7 @@
 
 import Foundation
 
-public struct People: Decodable, Hashable {
+public struct People: Decodable {
     /// The name of this person.
     public let name: String
     /// The birth year of the person, using the in-universe standard of BBY or ABY
@@ -40,4 +40,23 @@ public struct People: Decodable, Hashable {
     public let created: Date
     /// the ISO 8601 date format of the time that this resource was edited.
     public let edited: Date
+}
+
+extension People: Hashable {
+    public var hashValue: Int { url.hashValue }
+    
+    public func hash(into hasher: inout Hasher) {
+        hasher.combine(url)
+    }
+    
+    public static func == (lhs: People, rhs: People) -> Bool {
+        return lhs.url == rhs.url
+    }
+}
+
+extension People {
+    public var avatar: URL? {
+        guard let id = url.pathComponents.last else { return nil }
+        return URL(string: "https://mobile.aws.skylabs.it/mobileassignments/swapi/\(id).png")
+    }
 }
