@@ -1,5 +1,5 @@
 //
-//  People.swift
+//  Person.swift
 //  SWPediaKit
 //
 //  Created by Emilio Pavia on 17/02/21.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-public struct People: Decodable {
+public struct Person: Decodable {
     /// The name of this person.
     public let name: String
     /// The birth year of the person, using the in-universe standard of BBY or ABY
@@ -42,19 +42,19 @@ public struct People: Decodable {
     public let edited: Date
 }
 
-extension People: Hashable {
+extension Person: Hashable {
     public var hashValue: Int { url.hashValue }
     
     public func hash(into hasher: inout Hasher) {
         hasher.combine(url)
     }
     
-    public static func == (lhs: People, rhs: People) -> Bool {
+    public static func == (lhs: Person, rhs: Person) -> Bool {
         return lhs.url == rhs.url
     }
 }
 
-extension People {
+extension Person {
     public var avatar: URL? {
         guard let id = url.pathComponents.last else { return nil }
         return URL(string: "https://mobile.aws.skylabs.it/mobileassignments/swapi/\(id).png")

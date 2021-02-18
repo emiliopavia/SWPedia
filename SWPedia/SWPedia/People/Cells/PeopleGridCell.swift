@@ -11,7 +11,7 @@ import SWPediaKit
 
 class PeopleGridCell: UICollectionViewCell {
 
-    var people: People? {
+    var person: Person? {
         didSet {
             reloadData()
         }
@@ -67,7 +67,7 @@ class PeopleGridCell: UICollectionViewCell {
     
     override func prepareForReuse() {
         super.prepareForReuse()
-        people = nil
+        person = nil
     }
     
     private func clear() {
@@ -78,15 +78,15 @@ class PeopleGridCell: UICollectionViewCell {
     }
     
     private func reloadData() {
-        guard let people = people else {
+        guard let person = person else {
             clear()
             return
         }
         
         imageView.image = UIImage(named: "placeholder")
-        nameLabel.text = people.name
+        nameLabel.text = person.name
         
-        if let url = people.avatar {
+        if let url = person.avatar {
             downloadTask = imageDownloader.retrieveImage(with: url, options: [
                 .transition(.fade(0.25))
             ]) { [weak self] result in

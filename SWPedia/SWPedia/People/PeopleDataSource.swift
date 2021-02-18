@@ -14,26 +14,26 @@ enum PeopleSection: CaseIterable {
 }
 
 enum PeopleItem: Hashable {
-    case list(People)
-    case grid(People)
+    case list(Person)
+    case grid(Person)
 }
 
 class PeopleDataSource: UICollectionViewDiffableDataSource<PeopleSection, PeopleItem> {
     init(collectionView: UICollectionView) {
-        let listCell = UICollectionView.CellRegistration<PeopleListCell, People> { (cell, indexPath, item) in
-            cell.people = item
+        let listCell = UICollectionView.CellRegistration<PeopleListCell, Person> { (cell, indexPath, item) in
+            cell.person = item
         }
         
-        let gridCell = UICollectionView.CellRegistration<PeopleGridCell, People> { (cell, indexPath, item) in
-            cell.people = item
+        let gridCell = UICollectionView.CellRegistration<PeopleGridCell, Person> { (cell, indexPath, item) in
+            cell.person = item
         }
         
         super.init(collectionView: collectionView) { (collectionView, indexPath, item) -> UICollectionViewCell? in
             switch item {
-            case .list(let people):
-                return collectionView.dequeueConfiguredReusableCell(using: listCell, for: indexPath, item: people)
-            case .grid(let people):
-                return collectionView.dequeueConfiguredReusableCell(using: gridCell, for: indexPath, item: people)
+            case .list(let person):
+                return collectionView.dequeueConfiguredReusableCell(using: listCell, for: indexPath, item: person)
+            case .grid(let person):
+                return collectionView.dequeueConfiguredReusableCell(using: gridCell, for: indexPath, item: person)
             }
         }
     }

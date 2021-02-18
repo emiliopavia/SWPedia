@@ -21,7 +21,7 @@ class PeopleViewModel {
     var layout: UICollectionViewLayout { PeopleLayoutBuilder.layout(with: _layoutMode.value) }
     
     private var dataSource: UICollectionViewDiffableDataSource<PeopleSection, PeopleItem>?
-    private var data = [People]()
+    private var data = [Person]()
     private var nextURL: URL?
     
     private var currentRequest: Disposable? {
@@ -115,7 +115,7 @@ class PeopleViewModel {
         collectionView.scrollToTop()
     }
     
-    private func updateData(with page: APIPaginatedResponse<People>, animated: Bool) {
+    private func updateData(with page: APIPaginatedResponse<Person>, animated: Bool) {
         guard let dataSource = dataSource else { return }
         
         data.append(contentsOf: page.results)
@@ -137,14 +137,14 @@ class PeopleViewModel {
     }
 }
 
-extension Array where Element == People {
+extension Array where Element == Person {
     func peopleItems(with mode: LayoutMode) -> [PeopleItem] {
-        map { people -> PeopleItem in
+        map { person -> PeopleItem in
             switch mode {
             case .list:
-                return .list(people)
+                return .list(person)
             case .grid:
-                return .grid(people)
+                return .grid(person)
             }
         }
     }

@@ -8,7 +8,7 @@
 import Foundation
 
 public struct PeopleRequest: APIRequest {
-    public typealias Response = APIPaginatedResponse<People>
+    public typealias Response = APIPaginatedResponse<Person>
     
     public var url: URL
     

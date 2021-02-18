@@ -11,7 +11,7 @@ import SWPediaKit
 
 class PeopleListCell: UICollectionViewListCell {
     
-    var people: People? {
+    var person: Person? {
         didSet {
             reloadData()
         }
@@ -22,7 +22,7 @@ class PeopleListCell: UICollectionViewListCell {
     
     override func prepareForReuse() {
         super.prepareForReuse()
-        people = nil
+        person = nil
     }
     
     private func clear() {
@@ -32,19 +32,19 @@ class PeopleListCell: UICollectionViewListCell {
     }
     
     private func reloadData() {
-        guard let people = people else {
+        guard let person = person else {
             clear()
             return
         }
         
         var configuration = defaultContentConfiguration()
-        configuration.text = "\(people.name)"
+        configuration.text = "\(person.name)"
         configuration.image = UIImage(named: "placeholder")
         configuration.imageProperties.maximumSize = CGSize(width: 60, height: 60)
         configuration.imageProperties.cornerRadius = 30
         contentConfiguration = configuration
         
-        if let url = people.avatar {
+        if let url = person.avatar {
             downloadTask = imageDownloader.retrieveImage(with: url, options: [
                 .transition(.fade(0.25))
             ]) { [weak self] result in
