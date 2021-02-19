@@ -20,12 +20,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let window = UIWindow(windowScene: windowScene)
         
         let peopleViewController = PeopleViewController(client: client)
-        let peopleNavigationController = UINavigationController(rootViewController: peopleViewController)
+        let primaryViewController = UINavigationController(rootViewController: peopleViewController)
 
-        let splitViewController = RootViewController()
-        splitViewController.viewControllers = [peopleNavigationController]
+        let rootViewController = RootViewController()
+        rootViewController.viewControllers = [primaryViewController]
         
-        window.rootViewController = splitViewController
+        window.rootViewController = rootViewController
         
         self.window = window
         window.makeKeyAndVisible()
