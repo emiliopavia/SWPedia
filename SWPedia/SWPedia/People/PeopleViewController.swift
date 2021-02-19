@@ -53,12 +53,13 @@ class PeopleViewController: UIViewController {
         title = "Star Wars"
         navigationItem.rightBarButtonItem = switchModeButton
         
-        bindViewModel()
-        
+        // it's important to set delegate before binding the
+        // view model, otherwise RxCocoa will not work correctly
+        peopleView.searchBar.delegate = self
         peopleView.collectionView.delegate = self
         peopleView.collectionView.refreshControl = refreshControl
         
-        peopleView.searchBar.delegate = self
+        bindViewModel()
     }
     
     override func willTransition(to newCollection: UITraitCollection, with coordinator: UIViewControllerTransitionCoordinator) {
