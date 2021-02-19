@@ -19,6 +19,7 @@
 		BC84C56825E009470026B808 /* OpeningCrawlViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC84C56725E009470026B808 /* OpeningCrawlViewController.swift */; };
 		BC84C58D25E032EC0026B808 /* VehicleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC84C58C25E032EC0026B808 /* VehicleViewController.swift */; };
 		BC84C59325E033B70026B808 /* VehicleDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC84C59225E033B70026B808 /* VehicleDataSource.swift */; };
+		BC84C5A125E038F70026B808 /* UIImage+SWPedia.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC84C5A025E038F70026B808 /* UIImage+SWPedia.swift */; };
 		BCBD683B25DD7BAA0096C43B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCBD683A25DD7BAA0096C43B /* AppDelegate.swift */; };
 		BCBD683D25DD7BAA0096C43B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCBD683C25DD7BAA0096C43B /* SceneDelegate.swift */; };
 		BCBD684425DD7BAB0096C43B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BCBD684325DD7BAB0096C43B /* Assets.xcassets */; };
@@ -83,6 +84,7 @@
 		BC84C56725E009470026B808 /* OpeningCrawlViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpeningCrawlViewController.swift; sourceTree = "<group>"; };
 		BC84C58C25E032EC0026B808 /* VehicleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehicleViewController.swift; sourceTree = "<group>"; };
 		BC84C59225E033B70026B808 /* VehicleDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehicleDataSource.swift; sourceTree = "<group>"; };
+		BC84C5A025E038F70026B808 /* UIImage+SWPedia.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+SWPedia.swift"; sourceTree = "<group>"; };
 		BCBD683725DD7BAA0096C43B /* SWPedia.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SWPedia.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BCBD683A25DD7BAA0096C43B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BCBD683C25DD7BAA0096C43B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -177,6 +179,7 @@
 			isa = PBXGroup;
 			children = (
 				BCBD696A25DEBD060096C43B /* UICollectionView+SWPedia.swift */,
+				BC84C5A025E038F70026B808 /* UIImage+SWPedia.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -437,6 +440,7 @@
 				BCBD696125DEBA620096C43B /* RoundedImageView.swift in Sources */,
 				BC84C59325E033B70026B808 /* VehicleDataSource.swift in Sources */,
 				BCBD692625DE68790096C43B /* PeopleDataSource.swift in Sources */,
+				BC84C5A125E038F70026B808 /* UIImage+SWPedia.swift in Sources */,
 				BC84C51725DFBD7E0026B808 /* PersonDetailViewController.swift in Sources */,
 				BC84C56825E009470026B808 /* OpeningCrawlViewController.swift in Sources */,
 				BC84C54625DFF9560026B808 /* LoadingCell.swift in Sources */,

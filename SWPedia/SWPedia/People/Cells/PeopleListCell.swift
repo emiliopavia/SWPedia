@@ -39,7 +39,7 @@ class PeopleListCell: UICollectionViewListCell {
         
         var configuration = defaultContentConfiguration()
         configuration.text = "\(person.name)"
-        configuration.image = UIImage(named: "placeholder")
+        configuration.image = UIImage.avatarPlaceholder
         configuration.imageProperties.maximumSize = CGSize(width: 60, height: 60)
         configuration.imageProperties.cornerRadius = 30
         contentConfiguration = configuration

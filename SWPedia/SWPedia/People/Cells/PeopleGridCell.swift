@@ -83,7 +83,7 @@ class PeopleGridCell: UICollectionViewCell {
             return
         }
         
-        imageView.image = UIImage(named: "placeholder")
+        imageView.image = UIImage.avatarPlaceholder
         nameLabel.text = person.name
         
         if let url = person.avatar {

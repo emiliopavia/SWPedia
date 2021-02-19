@@ -63,7 +63,7 @@ class AvatarCell: UICollectionViewCell {
             return
         }
         
-        imageView.kf.setImage(with: url, placeholder: UIImage(named: "placeholder"),
+        imageView.kf.setImage(with: url, placeholder: UIImage.avatarPlaceholder,
                               options: [.transition(.fade(0.25))])
     }
 }
