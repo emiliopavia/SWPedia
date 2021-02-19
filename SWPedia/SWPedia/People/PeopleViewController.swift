@@ -13,6 +13,7 @@ import SWPediaKit
 class PeopleViewController: UIViewController {
 
     let client: HTTPClient
+    let baseURL: URL
     
     lazy var peopleView = PeopleView(layout: viewModel.layout)
     
@@ -30,12 +31,13 @@ class PeopleViewController: UIViewController {
         return refreshControl
     }()
     
-    lazy var viewModel = PeopleViewModel(client: client, baseURL: URL(string: "https://swapi.dev/api/people/")!)
+    lazy var viewModel = PeopleViewModel(client: client, baseURL: baseURL)
     
     private lazy var disposeBag = DisposeBag()
     
-    init(client: HTTPClient) {
+    init(client: HTTPClient, baseURL: URL) {
         self.client = client
+        self.baseURL = baseURL
         super.init(nibName: nil, bundle: nil)
     }
     

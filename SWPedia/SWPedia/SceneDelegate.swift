@@ -11,6 +11,7 @@ import SWPediaKit
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     lazy var client = HTTPClient(session: URLSession.shared)
+    lazy var baseURL = URL(string: "https://swapi.dev/api/people/")!
     
     var window: UIWindow?
 
@@ -19,7 +20,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         let window = UIWindow(windowScene: windowScene)
         
-        let peopleViewController = PeopleViewController(client: client)
+        let peopleViewController = PeopleViewController(client: client, baseURL: baseURL)
         let primaryViewController = UINavigationController(rootViewController: peopleViewController)
 
         let rootViewController = RootViewController()
