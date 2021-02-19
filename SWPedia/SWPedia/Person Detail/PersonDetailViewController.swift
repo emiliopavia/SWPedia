@@ -69,7 +69,8 @@ class PersonDetailViewController: UIViewController {
     }
     
     private func show(_ vehicle: Vehicle) {
-
+        let vc = VehicleViewController(vehicle: vehicle)
+        show(vc, sender: nil)
     }
 }
 
