@@ -20,6 +20,7 @@ enum PersonDetailItem: Hashable {
     case info(_ key: String, _ value: String)
     case loading(String)
     case film(Film)
+    case vehicle(Vehicle)
 }
 
 class PersonDetailDataSource: UICollectionViewDiffableDataSource<PersonDetailSection, PersonDetailItem> {
@@ -47,6 +48,14 @@ class PersonDetailDataSource: UICollectionViewDiffableDataSource<PersonDetailSec
             cell.accessories = [.disclosureIndicator()]
         }
         
+        let vehicleCell = UICollectionView.CellRegistration<UICollectionViewListCell, Vehicle> { (cell, indexPath, item) in
+            var configuration = UIListContentConfiguration.subtitleCell()
+            configuration.text = item.name
+            configuration.secondaryText = item.vehicleClass
+            cell.contentConfiguration = configuration
+            cell.accessories = [.disclosureIndicator()]
+        }
+        
         super.init(collectionView: collectionView) { (collectionView, indexPath, item) -> UICollectionViewCell? in
             switch item {
             case .avatar(let url):
@@ -57,6 +66,8 @@ class PersonDetailDataSource: UICollectionViewDiffableDataSource<PersonDetailSec
                 return collectionView.dequeueConfiguredReusableCell(using: loadingCell, for: indexPath, item: key)
             case .film(let film):
                 return collectionView.dequeueConfiguredReusableCell(using: filmCell, for: indexPath, item: film)
+            case .vehicle(let vehicle):
+                return collectionView.dequeueConfiguredReusableCell(using: vehicleCell, for: indexPath, item: vehicle)
             }
         }
         

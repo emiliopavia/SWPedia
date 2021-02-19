@@ -37,15 +37,7 @@ public extension APIRequest {
     var decoder: JSONDecoder {
         let decoder = JSONDecoder()
         decoder.keyDecodingStrategy = .convertFromSnakeCase
-
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZZZZZ"
-        dateFormatter.calendar = Calendar(identifier: .iso8601)
-        dateFormatter.timeZone = TimeZone(secondsFromGMT: 0)
-        dateFormatter.locale = Locale(identifier: "en_US_POSIX")
-
-        decoder.dateDecodingStrategy = .formatted(dateFormatter)
-        
+        decoder.dateDecodingStrategy = .formatted(SWAPIDateFormatter())
         return decoder
     }
 }

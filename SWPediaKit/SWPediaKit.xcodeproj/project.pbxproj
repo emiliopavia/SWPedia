@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		BC84C54C25DFFCAA0026B808 /* Film.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC84C54B25DFFCAA0026B808 /* Film.swift */; };
 		BC84C55225DFFDF20026B808 /* API+Films.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC84C55125DFFDF20026B808 /* API+Films.swift */; };
+		BC84C57725E0286B0026B808 /* API+Vehicles.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC84C57625E0286B0026B808 /* API+Vehicles.swift */; };
+		BC84C57F25E028770026B808 /* Vehicle.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC84C57E25E028770026B808 /* Vehicle.swift */; };
+		BC84C58625E02B230026B808 /* SWAPIDateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC84C58525E02B230026B808 /* SWAPIDateFormatter.swift */; };
 		BCBD688125DD7BC20096C43B /* SWPediaKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BCBD687725DD7BC20096C43B /* SWPediaKit.framework */; };
 		BCBD688625DD7BC20096C43B /* SWPediaKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCBD688525DD7BC20096C43B /* SWPediaKitTests.swift */; };
 		BCBD688825DD7BC20096C43B /* SWPediaKit.h in Headers */ = {isa = PBXBuildFile; fileRef = BCBD687A25DD7BC20096C43B /* SWPediaKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -39,6 +42,9 @@
 /* Begin PBXFileReference section */
 		BC84C54B25DFFCAA0026B808 /* Film.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Film.swift; sourceTree = "<group>"; };
 		BC84C55125DFFDF20026B808 /* API+Films.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "API+Films.swift"; sourceTree = "<group>"; };
+		BC84C57625E0286B0026B808 /* API+Vehicles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "API+Vehicles.swift"; sourceTree = "<group>"; };
+		BC84C57E25E028770026B808 /* Vehicle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Vehicle.swift; sourceTree = "<group>"; };
+		BC84C58525E02B230026B808 /* SWAPIDateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SWAPIDateFormatter.swift; sourceTree = "<group>"; };
 		BCBD687725DD7BC20096C43B /* SWPediaKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SWPediaKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BCBD687A25DD7BC20096C43B /* SWPediaKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SWPediaKit.h; sourceTree = "<group>"; };
 		BCBD687B25DD7BC20096C43B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -78,6 +84,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		BC84C58425E02B050026B808 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				BC84C58525E02B230026B808 /* SWAPIDateFormatter.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
 		BCBD686D25DD7BC20096C43B = {
 			isa = PBXGroup;
 			children = (
@@ -101,6 +115,7 @@
 			children = (
 				BCBD687A25DD7BC20096C43B /* SWPediaKit.h */,
 				BCBD687B25DD7BC20096C43B /* Info.plist */,
+				BC84C58425E02B050026B808 /* Common */,
 				BCBD68BC25DD7EB80096C43B /* API */,
 				BCBD68D225DD830C0096C43B /* Logging */,
 				BCBD68BB25DD7EB30096C43B /* Models */,
@@ -124,6 +139,7 @@
 				BCBD68D925DD8B620096C43B /* APIRoot.swift */,
 				BC84C54B25DFFCAA0026B808 /* Film.swift */,
 				BCBD68E725DD91150096C43B /* Person.swift */,
+				BC84C57E25E028770026B808 /* Vehicle.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -135,6 +151,7 @@
 				BC84C55125DFFDF20026B808 /* API+Films.swift */,
 				BCBD68EB25DD92910096C43B /* API+People.swift */,
 				BCBD68DD25DD8B840096C43B /* API+Root.swift */,
+				BC84C57625E0286B0026B808 /* API+Vehicles.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -274,6 +291,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BC84C57F25E028770026B808 /* Vehicle.swift in Sources */,
+				BC84C58625E02B230026B808 /* SWAPIDateFormatter.swift in Sources */,
 				BCBD68DA25DD8B620096C43B /* APIRoot.swift in Sources */,
 				BCBD68C325DD7ED70096C43B /* HTTPClient.swift in Sources */,
 				BCBD68D425DD831B0096C43B /* OSLog+SWPediaKit.swift in Sources */,
@@ -283,6 +302,7 @@
 				BCBD68E825DD91150096C43B /* Person.swift in Sources */,
 				BC84C55225DFFDF20026B808 /* API+Films.swift in Sources */,
 				BCBD68CD25DD82630096C43B /* HTTPURLResponse+SWPediaKit.swift in Sources */,
+				BC84C57725E0286B0026B808 /* API+Vehicles.swift in Sources */,
 				BCBD68BF25DD7ECF0096C43B /* API.swift in Sources */,
 				BCBD68DE25DD8B840096C43B /* API+Root.swift in Sources */,
 			);

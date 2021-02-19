@@ -23,7 +23,19 @@ class PersonDetailViewModel {
     
     private var dataSource: UICollectionViewDiffableDataSource<PersonDetailSection, PersonDetailItem>?
     
-    private var films: [Film]?
+    private lazy var films: Observable<[Film]> = {
+        let films = person.films.map {
+            getFilm(from: $0).share(replay: 1, scope: .forever)
+        }
+        return Observable.zip(films)
+    }()
+    
+    private lazy var vehicles: Observable<[Vehicle]> = {
+        let vehicles = person.vehicles.map {
+            getVehicle(from: $0).share(replay: 1, scope: .forever)
+        }
+        return Observable.zip(vehicles)
+    }()
     
     private var disposeBag: DisposeBag?
     
@@ -46,41 +58,46 @@ class PersonDetailViewModel {
     }
     
     func refreshFilmsIfNeeded() {
-        guard films == nil else { return }
         guard let disposeBag = self.disposeBag else { return }
         
-        let films = person.films.map { getFilm(from: $0) }
-        Observable.zip(films)
+        films
+            .catchAndReturn([])
             .observe(on: MainScheduler.instance)
             .subscribe(onNext: { [weak self] in
-                self?.updateData(with: $0)
-            }, onError: { [weak self] _ in
-                self?.updateData(with: [])
-            }) {
-                
-            }
+                self?.updateData(withFilms: $0)
+            })
             .disposed(by: disposeBag)
     }
     
     func refreshVehiclesIfNeeded() {
+        guard let disposeBag = self.disposeBag else { return }
         
+        vehicles
+            .catchAndReturn([])
+            .observe(on: MainScheduler.instance)
+            .subscribe(onNext: { [weak self] in
+                self?.updateData(withVehicles: $0)
+            })
+            .disposed(by: disposeBag)
     }
     
-    func film(at indexPath: IndexPath) -> Film? {
-        guard let item = dataSource?.itemIdentifier(for: indexPath) else {
-            return nil
+    func shouldSelectItem(at indexPath: IndexPath) -> Bool {
+        switch item(at: indexPath) {
+        case .film, .vehicle: return true
+        default: return false
         }
-        
-        switch item {
-        case .film(let film):
-            return film
-        default:
-            return nil
-        }
+    }
+    
+    func item(at indexPath: IndexPath) -> PersonDetailItem? {
+        dataSource?.itemIdentifier(for: indexPath)
     }
     
     private func getFilm(from url: URL) -> Observable<Film> {
         client.send(FilmRequest(url: url))
+    }
+    
+    private func getVehicle(from url: URL) -> Observable<Vehicle> {
+        client.send(VehicleRequest(url: url))
     }
     
     private func updateData(with person: Person) {
@@ -106,18 +123,20 @@ class PersonDetailViewModel {
             .info("Skin Color", person.skinColor),
         ])
         
-        snapshot.appendSections([.films])
-        snapshot.appendItems([.loading("films")])
+        if !person.films.isEmpty {
+            snapshot.appendSections([.films])
+            snapshot.appendItems([.loading("films")])
+        }
         
-        snapshot.appendSections([.vehicles])
-        snapshot.appendItems([.loading("vehicles")])
+        if !person.vehicles.isEmpty {
+            snapshot.appendSections([.vehicles])
+            snapshot.appendItems([.loading("vehicles")])
+        }
         
         dataSource.apply(snapshot, animatingDifferences: false)
     }
     
-    private func updateData(with films: [Film]) {
-        self.films = films
-        
+    private func updateData(withFilms films: [Film]) {
         guard let dataSource = dataSource else { return }
         
         var snapshot = dataSource.snapshot()
@@ -125,6 +144,17 @@ class PersonDetailViewModel {
         snapshot.insertSections([.films], afterSection: .general)
         snapshot.appendItems(films.map { PersonDetailItem.film($0) },
                              toSection: .films)
+        dataSource.apply(snapshot, animatingDifferences: true)
+    }
+    
+    private func updateData(withVehicles vehicles: [Vehicle]) {
+        guard let dataSource = dataSource else { return }
+        
+        var snapshot = dataSource.snapshot()
+        snapshot.deleteSections([.vehicles])
+        snapshot.insertSections([.vehicles], afterSection: .films)
+        snapshot.appendItems(vehicles.map { PersonDetailItem.vehicle($0) },
+                             toSection: .vehicles)
         dataSource.apply(snapshot, animatingDifferences: true)
     }
 }

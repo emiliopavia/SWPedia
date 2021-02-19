@@ -60,21 +60,32 @@ class PersonDetailViewController: UIViewController {
     private func bindViewModel() {
         viewModel.bind(to: personDetailView)
     }
-}
-
-extension PersonDetailViewController: UICollectionViewDelegate {
-    func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
-        viewModel.film(at: indexPath) != nil
-    }
     
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        guard let film = viewModel.film(at: indexPath) else {
-            return
-        }
-        
+    private func showOpeningCrawl(for film: Film) {
         let vc = OpeningCrawlViewController(openingCrawl: film.openingCrawl)
         vc.modalPresentationStyle = .fullScreen
         vc.modalTransitionStyle = .crossDissolve
         present(vc, animated: true, completion: nil)
+    }
+    
+    private func show(_ vehicle: Vehicle) {
+
+    }
+}
+
+extension PersonDetailViewController: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, shouldHighlightItemAt indexPath: IndexPath) -> Bool {
+        viewModel.shouldSelectItem(at: indexPath)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        switch viewModel.item(at: indexPath) {
+        case .film(let film):
+            showOpeningCrawl(for: film)
+        case .vehicle(let vehicle):
+            show(vehicle)
+        default:
+            break
+        }
     }
 }
