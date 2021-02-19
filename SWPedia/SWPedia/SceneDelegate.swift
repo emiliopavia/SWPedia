@@ -20,7 +20,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let window = UIWindow(windowScene: windowScene)
         
         let peopleViewController = PeopleViewController(client: client)
-        let peopleNavigationController = NavigationController(rootViewController: peopleViewController)
+        let peopleNavigationController = UINavigationController(rootViewController: peopleViewController)
 
         let splitViewController = RootViewController()
         splitViewController.viewControllers = [peopleNavigationController]

@@ -18,7 +18,7 @@ class RootViewController: UISplitViewController, UISplitViewControllerDelegate {
 
     func splitViewController(_ splitViewController: UISplitViewController, showDetail vc: UIViewController, sender: Any?) -> Bool {
         guard !isCollapsed else { return false }
-        viewControllers = [viewControllers.first!, NavigationController(rootViewController: vc)]
+        viewControllers = [viewControllers.first!, UINavigationController(rootViewController: vc)]
         return true
     }
     
@@ -31,7 +31,7 @@ class RootViewController: UISplitViewController, UISplitViewControllerDelegate {
             return nil
         }
         
-        let secondaryViewController = NavigationController()
+        let secondaryViewController = UINavigationController()
         secondaryViewController.viewControllers = viewControllers
         
         return secondaryViewController

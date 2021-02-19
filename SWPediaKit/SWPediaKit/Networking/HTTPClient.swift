@@ -12,8 +12,6 @@ import os.log
 
 public class HTTPClient {
     
-    public static var `default`: HTTPClient!
-    
     public let session: URLSession
     
     public init(session: URLSession) {
