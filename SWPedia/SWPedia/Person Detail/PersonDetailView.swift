@@ -14,7 +14,6 @@ class PersonDetailView: UIView {
     init(layout: UICollectionViewLayout) {
         collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.backgroundColor = .clear
-        collectionView.allowsSelection = false
         super.init(frame: .zero)
         setupView()
     }

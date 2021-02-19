@@ -40,10 +40,41 @@ class PersonDetailViewController: UIViewController {
         
         title = person.name
         
+        personDetailView.collectionView.delegate = self
+        
         bindViewModel()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        personDetailView.collectionView.deselectItems(transitionCoordinator: transitionCoordinator)
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        viewModel.refreshIfNeeded()
     }
     
     private func bindViewModel() {
         viewModel.bind(to: personDetailView)
+    }
+}
+
+extension PersonDetailViewController: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
+        viewModel.film(at: indexPath) != nil
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        guard let film = viewModel.film(at: indexPath) else {
+            return
+        }
+        
+        let vc = OpeningCrawlViewController(openingCrawl: film.openingCrawl)
+        vc.modalPresentationStyle = .fullScreen
+        vc.modalTransitionStyle = .crossDissolve
+        present(vc, animated: true, completion: nil)
     }
 }

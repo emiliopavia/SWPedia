@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BC84C54C25DFFCAA0026B808 /* Film.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC84C54B25DFFCAA0026B808 /* Film.swift */; };
+		BC84C55225DFFDF20026B808 /* API+Films.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC84C55125DFFDF20026B808 /* API+Films.swift */; };
 		BCBD688125DD7BC20096C43B /* SWPediaKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BCBD687725DD7BC20096C43B /* SWPediaKit.framework */; };
 		BCBD688625DD7BC20096C43B /* SWPediaKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCBD688525DD7BC20096C43B /* SWPediaKitTests.swift */; };
 		BCBD688825DD7BC20096C43B /* SWPediaKit.h in Headers */ = {isa = PBXBuildFile; fileRef = BCBD687A25DD7BC20096C43B /* SWPediaKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -35,6 +37,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		BC84C54B25DFFCAA0026B808 /* Film.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Film.swift; sourceTree = "<group>"; };
+		BC84C55125DFFDF20026B808 /* API+Films.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "API+Films.swift"; sourceTree = "<group>"; };
 		BCBD687725DD7BC20096C43B /* SWPediaKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SWPediaKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BCBD687A25DD7BC20096C43B /* SWPediaKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SWPediaKit.h; sourceTree = "<group>"; };
 		BCBD687B25DD7BC20096C43B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -118,6 +122,7 @@
 			isa = PBXGroup;
 			children = (
 				BCBD68D925DD8B620096C43B /* APIRoot.swift */,
+				BC84C54B25DFFCAA0026B808 /* Film.swift */,
 				BCBD68E725DD91150096C43B /* Person.swift */,
 			);
 			path = Models;
@@ -127,6 +132,7 @@
 			isa = PBXGroup;
 			children = (
 				BCBD68BE25DD7ECF0096C43B /* API.swift */,
+				BC84C55125DFFDF20026B808 /* API+Films.swift */,
 				BCBD68EB25DD92910096C43B /* API+People.swift */,
 				BCBD68DD25DD8B840096C43B /* API+Root.swift */,
 			);
@@ -273,7 +279,9 @@
 				BCBD68D425DD831B0096C43B /* OSLog+SWPediaKit.swift in Sources */,
 				BCBD68EC25DD92910096C43B /* API+People.swift in Sources */,
 				BCBD68C725DD7F9B0096C43B /* API+URLSession.swift in Sources */,
+				BC84C54C25DFFCAA0026B808 /* Film.swift in Sources */,
 				BCBD68E825DD91150096C43B /* Person.swift in Sources */,
+				BC84C55225DFFDF20026B808 /* API+Films.swift in Sources */,
 				BCBD68CD25DD82630096C43B /* HTTPURLResponse+SWPediaKit.swift in Sources */,
 				BCBD68BF25DD7ECF0096C43B /* API.swift in Sources */,
 				BCBD68DE25DD8B840096C43B /* API+Root.swift in Sources */,
