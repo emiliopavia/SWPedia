@@ -20,11 +20,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let window = UIWindow(windowScene: windowScene)
         
         let peopleViewController = PeopleViewController(client: client)
-        let peopleNavigationController = UINavigationController(rootViewController: peopleViewController)
-        
-        let splitViewController = UISplitViewController(style: .doubleColumn)
-        splitViewController.setViewController(peopleNavigationController, for: .primary)
-        splitViewController.preferredDisplayMode = .oneBesideSecondary
+        let peopleNavigationController = NavigationController(rootViewController: peopleViewController)
+
+        let splitViewController = RootViewController()
+        splitViewController.viewControllers = [peopleNavigationController]
         
         window.rootViewController = splitViewController
         

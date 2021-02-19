@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BC84C51725DFBD7E0026B808 /* PersonDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC84C51625DFBD7E0026B808 /* PersonDetailViewController.swift */; };
+		BC84C51B25DFBD8A0026B808 /* PersonDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC84C51A25DFBD8A0026B808 /* PersonDetailView.swift */; };
+		BC84C51F25DFBD930026B808 /* PersonDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC84C51E25DFBD930026B808 /* PersonDetailViewModel.swift */; };
+		BC84C52325DFBDA30026B808 /* PersonDetailDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC84C52225DFBDA30026B808 /* PersonDetailDataSource.swift */; };
+		BC84C53225DFCE6F0026B808 /* AvatarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC84C53125DFCE6F0026B808 /* AvatarCell.swift */; };
+		BC84C53825DFD3150026B808 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC84C53725DFD3150026B808 /* RootViewController.swift */; };
+		BC84C53E25DFD4510026B808 /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC84C53D25DFD4510026B808 /* NavigationController.swift */; };
 		BCBD683B25DD7BAA0096C43B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCBD683A25DD7BAA0096C43B /* AppDelegate.swift */; };
 		BCBD683D25DD7BAA0096C43B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCBD683C25DD7BAA0096C43B /* SceneDelegate.swift */; };
 		BCBD684425DD7BAB0096C43B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BCBD684325DD7BAB0096C43B /* Assets.xcassets */; };
@@ -60,6 +67,13 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		BC84C51625DFBD7E0026B808 /* PersonDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonDetailViewController.swift; sourceTree = "<group>"; };
+		BC84C51A25DFBD8A0026B808 /* PersonDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonDetailView.swift; sourceTree = "<group>"; };
+		BC84C51E25DFBD930026B808 /* PersonDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonDetailViewModel.swift; sourceTree = "<group>"; };
+		BC84C52225DFBDA30026B808 /* PersonDetailDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonDetailDataSource.swift; sourceTree = "<group>"; };
+		BC84C53125DFCE6F0026B808 /* AvatarCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarCell.swift; sourceTree = "<group>"; };
+		BC84C53725DFD3150026B808 /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
+		BC84C53D25DFD4510026B808 /* NavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
 		BCBD683725DD7BAA0096C43B /* SWPedia.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SWPedia.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BCBD683A25DD7BAA0096C43B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BCBD683C25DD7BAA0096C43B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -112,6 +126,26 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		BC84C51525DFBD5F0026B808 /* Person Detail */ = {
+			isa = PBXGroup;
+			children = (
+				BC84C53025DFCE560026B808 /* Cells */,
+				BC84C52225DFBDA30026B808 /* PersonDetailDataSource.swift */,
+				BC84C51A25DFBD8A0026B808 /* PersonDetailView.swift */,
+				BC84C51625DFBD7E0026B808 /* PersonDetailViewController.swift */,
+				BC84C51E25DFBD930026B808 /* PersonDetailViewModel.swift */,
+			);
+			path = "Person Detail";
+			sourceTree = "<group>";
+		};
+		BC84C53025DFCE560026B808 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				BC84C53125DFCE6F0026B808 /* AvatarCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
 		BCBD682E25DD7BAA0096C43B = {
 			isa = PBXGroup;
 			children = (
@@ -144,6 +178,7 @@
 				BCBD684525DD7BAB0096C43B /* LaunchScreen.storyboard */,
 				BCBD695F25DEBA500096C43B /* Common */,
 				BCBD68F825DE53E10096C43B /* People */,
+				BC84C51525DFBD5F0026B808 /* Person Detail */,
 			);
 			path = SWPedia;
 			sourceTree = "<group>";
@@ -190,6 +225,8 @@
 		BCBD695F25DEBA500096C43B /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				BC84C53D25DFD4510026B808 /* NavigationController.swift */,
+				BC84C53725DFD3150026B808 /* RootViewController.swift */,
 				BCBD696025DEBA620096C43B /* RoundedImageView.swift */,
 				BCBD696A25DEBD060096C43B /* UICollectionView+SWPedia.swift */,
 			);
@@ -343,15 +380,22 @@
 			files = (
 				BCBD690425DE54030096C43B /* PeopleViewModel.swift in Sources */,
 				BCBD690025DE53F90096C43B /* PeopleView.swift in Sources */,
+				BC84C53825DFD3150026B808 /* RootViewController.swift in Sources */,
 				BCBD68FA25DE53F00096C43B /* PeopleViewController.swift in Sources */,
 				BCBD683B25DD7BAA0096C43B /* AppDelegate.swift in Sources */,
 				BCBD695225DEAB030096C43B /* PeopleListCell.swift in Sources */,
 				BCBD691A25DE59C70096C43B /* PeopleLayoutBuilder.swift in Sources */,
 				BCBD690825DE544C0096C43B /* EmptyViewController.swift in Sources */,
+				BC84C53E25DFD4510026B808 /* NavigationController.swift in Sources */,
+				BC84C53225DFCE6F0026B808 /* AvatarCell.swift in Sources */,
 				BCBD683D25DD7BAA0096C43B /* SceneDelegate.swift in Sources */,
 				BCBD696125DEBA620096C43B /* RoundedImageView.swift in Sources */,
 				BCBD692625DE68790096C43B /* PeopleDataSource.swift in Sources */,
+				BC84C51725DFBD7E0026B808 /* PersonDetailViewController.swift in Sources */,
 				BCBD696B25DEBD060096C43B /* UICollectionView+SWPedia.swift in Sources */,
+				BC84C52325DFBDA30026B808 /* PersonDetailDataSource.swift in Sources */,
+				BC84C51B25DFBD8A0026B808 /* PersonDetailView.swift in Sources */,
+				BC84C51F25DFBD930026B808 /* PersonDetailViewModel.swift in Sources */,
 				BCBD692D25DE6A360096C43B /* PeopleGridCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

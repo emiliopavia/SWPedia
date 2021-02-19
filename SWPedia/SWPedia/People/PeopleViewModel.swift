@@ -96,6 +96,17 @@ class PeopleViewModel {
         }
     }
     
+    func person(at indexPath: IndexPath) -> Person? {
+        if let item = dataSource?.itemIdentifier(for: indexPath) {
+            switch item {
+            case .grid(let person),
+                 .list(let person):
+                return person
+            }
+        }
+        return nil
+    }
+    
     private func search(_ name: String) {
         searchString = name
         refresh(animated: true)

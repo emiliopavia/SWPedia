@@ -26,7 +26,7 @@ class PeopleViewController: UIViewController {
     
     lazy var refreshControl: UIRefreshControl = {
         let refreshControl = UIRefreshControl()
-        refreshControl.addTarget(self, action: #selector(refresh(_:)), for: .primaryActionTriggered)
+        refreshControl.addTarget(self, action: #selector(refresh(_:)), for: .valueChanged)
         return refreshControl
     }()
     
@@ -70,6 +70,12 @@ class PeopleViewController: UIViewController {
         }
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        peopleView.collectionView.deselectItems(transitionCoordinator: transitionCoordinator)
+    }
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
@@ -102,11 +108,22 @@ class PeopleViewController: UIViewController {
             .bind(to: switchModeButton.rx.image)
             .disposed(by: disposeBag)
     }
+    
+    private func showDetail(for person: Person) {
+        let detailViewController = PersonDetailViewController(client: client, person: person)
+        showDetailViewController(detailViewController, sender: nil)
+    }
 }
 
 extension PeopleViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         viewModel.willDisplayCell(at: indexPath)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if let person = viewModel.person(at: indexPath) {
+            showDetail(for: person)
+        }
     }
 }
 
