@@ -26,6 +26,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let rootViewController = RootViewController()
         rootViewController.viewControllers = [primaryViewController]
         
+        window.tintColor = UIColor.tint
         window.rootViewController = rootViewController
         
         self.window = window

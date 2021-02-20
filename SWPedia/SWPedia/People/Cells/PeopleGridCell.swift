@@ -62,6 +62,11 @@ class PeopleGridCell: UICollectionViewCell {
             stackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
             stackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor)
         ])
+        
+        let selectedView = UIView()
+        selectedView.layer.cornerRadius = 8
+        selectedView.backgroundColor = UIColor.gridCellSelected
+        selectedBackgroundView = selectedView
     }
     
     required init?(coder: NSCoder) {
