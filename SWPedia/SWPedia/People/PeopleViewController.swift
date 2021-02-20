@@ -75,7 +75,9 @@ class PeopleViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        peopleView.collectionView.deselectItems(transitionCoordinator: transitionCoordinator)
+        if let svc = splitViewController, svc.isCollapsed {
+            peopleView.collectionView.deselectItems(transitionCoordinator: transitionCoordinator)
+        }
     }
     
     override func viewDidAppear(_ animated: Bool) {
