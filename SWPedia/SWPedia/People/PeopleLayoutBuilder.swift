@@ -30,8 +30,8 @@ class PeopleLayoutBuilder {
     private class func gridLayout() -> UICollectionViewLayout {
         let layout = UICollectionViewCompositionalLayout { (sectionIndex: Int, layoutEnvironment: NSCollectionLayoutEnvironment) -> NSCollectionLayoutSection in
             let contentSize = layoutEnvironment.container.effectiveContentSize
-            let columns = contentSize.width > 400 ? 4 : 2
-            let spacing = CGFloat(30)
+            let columns = contentSize.width > 400 ? 5 : 3
+            let spacing = CGFloat(16)
             let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
                                                   heightDimension: .estimated(100))
             let item = NSCollectionLayoutItem(layoutSize: itemSize)
@@ -42,7 +42,7 @@ class PeopleLayoutBuilder {
 
             let section = NSCollectionLayoutSection(group: group)
             section.interGroupSpacing = spacing
-            section.contentInsets = NSDirectionalEdgeInsets(top: 20, leading: 20, bottom: 40, trailing: 20)
+            section.contentInsets = NSDirectionalEdgeInsets(top: 8, leading: 8, bottom: 8, trailing: 8)
 
             return section
         }
