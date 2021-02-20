@@ -33,6 +33,8 @@ class PeopleViewController: UIViewController {
     
     lazy var viewModel = PeopleViewModel(client: client, baseURL: baseURL)
     
+    private var keyboardController: KeyboardController?
+    
     private lazy var disposeBag = DisposeBag()
     
     init(client: HTTPClient, baseURL: URL) {
@@ -60,6 +62,8 @@ class PeopleViewController: UIViewController {
         peopleView.searchBar.delegate = self
         peopleView.collectionView.delegate = self
         peopleView.collectionView.refreshControl = refreshControl
+        
+        keyboardController = KeyboardController(scrollView: peopleView.collectionView)
         
         bindViewModel()
     }

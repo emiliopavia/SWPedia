@@ -19,6 +19,8 @@ class PersonDetailViewController: UIViewController {
     
     lazy var viewModel = PersonDetailViewModel(client: client, person: person)
     
+    private var keyboardController: KeyboardController?
+    
     private lazy var disposeBag = DisposeBag()
     
     init(client: HTTPClient, person: Person) {
@@ -41,6 +43,8 @@ class PersonDetailViewController: UIViewController {
         title = person.name
         
         personDetailView.collectionView.delegate = self
+        
+        keyboardController = KeyboardController(scrollView: personDetailView.collectionView)
         
         bindViewModel()
     }

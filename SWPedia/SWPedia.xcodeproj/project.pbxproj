@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BC6E16DF25E1619D007B61DE /* KeyboardObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC6E16DE25E1619D007B61DE /* KeyboardObserver.swift */; };
+		BC6E16EF25E161E0007B61DE /* KeyboardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC6E16EE25E161E0007B61DE /* KeyboardController.swift */; };
 		BC84C51725DFBD7E0026B808 /* PersonDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC84C51625DFBD7E0026B808 /* PersonDetailViewController.swift */; };
 		BC84C51B25DFBD8A0026B808 /* PersonDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC84C51A25DFBD8A0026B808 /* PersonDetailView.swift */; };
 		BC84C51F25DFBD930026B808 /* PersonDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC84C51E25DFBD930026B808 /* PersonDetailViewModel.swift */; };
@@ -73,6 +75,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		BC6E16DE25E1619D007B61DE /* KeyboardObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardObserver.swift; sourceTree = "<group>"; };
+		BC6E16EE25E161E0007B61DE /* KeyboardController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardController.swift; sourceTree = "<group>"; };
 		BC84C51625DFBD7E0026B808 /* PersonDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonDetailViewController.swift; sourceTree = "<group>"; };
 		BC84C51A25DFBD8A0026B808 /* PersonDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonDetailView.swift; sourceTree = "<group>"; };
 		BC84C51E25DFBD930026B808 /* PersonDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonDetailViewModel.swift; sourceTree = "<group>"; };
@@ -138,6 +142,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		BC6E16DD25E16188007B61DE /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				BC6E16EE25E161E0007B61DE /* KeyboardController.swift */,
+				BC6E16DE25E1619D007B61DE /* KeyboardObserver.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
 		BC84C51525DFBD5F0026B808 /* Person Detail */ = {
 			isa = PBXGroup;
 			children = (
@@ -277,6 +290,7 @@
 			isa = PBXGroup;
 			children = (
 				BC84C57325E026A50026B808 /* Extensions */,
+				BC6E16DD25E16188007B61DE /* Utils */,
 				BC84C57125E026970026B808 /* View Controllers */,
 				BC84C57225E026A00026B808 /* Views */,
 			);
@@ -434,6 +448,7 @@
 				BCBD690425DE54030096C43B /* PeopleViewModel.swift in Sources */,
 				BCBD690025DE53F90096C43B /* PeopleView.swift in Sources */,
 				BC84C53825DFD3150026B808 /* RootViewController.swift in Sources */,
+				BC6E16DF25E1619D007B61DE /* KeyboardObserver.swift in Sources */,
 				BCBD68FA25DE53F00096C43B /* PeopleViewController.swift in Sources */,
 				BCBD683B25DD7BAA0096C43B /* AppDelegate.swift in Sources */,
 				BCBD695225DEAB030096C43B /* PeopleListCell.swift in Sources */,
@@ -446,6 +461,7 @@
 				BCBD692625DE68790096C43B /* PeopleDataSource.swift in Sources */,
 				BC84C5A125E038F70026B808 /* UIImage+SWPedia.swift in Sources */,
 				BC84C51725DFBD7E0026B808 /* PersonDetailViewController.swift in Sources */,
+				BC6E16EF25E161E0007B61DE /* KeyboardController.swift in Sources */,
 				BC84C56825E009470026B808 /* OpeningCrawlViewController.swift in Sources */,
 				BC84C54625DFF9560026B808 /* LoadingCell.swift in Sources */,
 				BCBD696B25DEBD060096C43B /* UICollectionView+SWPedia.swift in Sources */,
