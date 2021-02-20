@@ -19,7 +19,7 @@ class OpeningCrawlViewController: UIViewController {
         textView.isEditable = false
         textView.isSelectable = false
         textView.font = UIFont(name: "News Gothic Std", size: 20)
-        textView.textContainerInset.bottom = 250 // magic number to scroll the text even further
+        textView.textContainerInset.bottom = 260 // magic number to scroll the text even further
         
         var transform: CATransform3D = CATransform3DIdentity
         transform.m34 = -1 / 250
