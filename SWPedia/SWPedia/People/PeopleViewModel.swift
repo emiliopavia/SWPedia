@@ -31,7 +31,7 @@ class PeopleViewModel {
         }
     }
     
-    private let _layoutMode = BehaviorRelay<LayoutMode>(value: .list)
+    private let _layoutMode = BehaviorRelay<LayoutMode>(value: .grid)
     private var _isLoading = BehaviorRelay<Bool>(value: false)
     
     private var disposeBag: DisposeBag?
