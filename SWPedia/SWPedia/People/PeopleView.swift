@@ -33,8 +33,8 @@ class PeopleView: UIView {
     override func layoutSubviews() {
         super.layoutSubviews()
         
-        collectionView.contentInset.top = searchBar.frame.height
-        collectionView.verticalScrollIndicatorInsets.top = searchBar.frame.height
+        collectionView.contentInset.top = searchBar.frame.height - 1
+        collectionView.verticalScrollIndicatorInsets.top = searchBar.frame.height - 1
     }
     
     private func addCollectionView() {
@@ -55,7 +55,7 @@ class PeopleView: UIView {
         searchBar.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             searchBar.leadingAnchor.constraint(equalTo: leadingAnchor),
-            searchBar.topAnchor.constraint(equalToSystemSpacingBelow: safeAreaLayoutGuide.topAnchor, multiplier: 1.0),
+            searchBar.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: -1),
             searchBar.trailingAnchor.constraint(equalTo: trailingAnchor)
         ])
         searchBar.sizeToFit()
